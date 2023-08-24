@@ -1,13 +1,16 @@
 import {useState} from "react"
 import logo from "/favicon.svg"
 import {motion} from "framer-motion"
+import {useMediaQuery} from "usehooks-ts"
+//https://usehooks-ts.com/introduction
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false)
+  const matches = useMediaQuery("(min-width:640px)")
   return (
     <>
       <nav
-        className={`relative  mx-8 mb-24 flex justify-between items-center pt-12 pb-6 font-medium md:mx-16 lg:mx-32`}
+        className={`relative  mx-4 mb-24 flex justify-between items-center pt-8 pb-3 font-medium md:mx-16 lg:mx-32`}
       >
         <svg
           className={`absolute bottom-0 left-1/2 -translate-x-1/2 `}
@@ -27,10 +30,17 @@ export default function Nav() {
         <div>
           <img src={logo} alt="" className={`h-[50px]`} />
         </div>
-        <h1 className={`text-lg font-bold`}>
-          <a href="/">i.etz</a>
-        </h1>
-        <div className={`space-y-2`}>
+        {matches && (
+          <h1 className={`text-lg font-bold`}>
+            <a href="/" className={`text-2xl`}>
+              i.etz{" "}
+            </a>
+          </h1>
+        )}
+        <div
+          className={`space-y-2 cursor-pointer`}
+          onClick={() => setToggled(prev => !prev)}
+        >
           <span className={`block h-0.5 w-8 bg-black`}></span>
           <span className={`block h-0.5 w-8 bg-black`}></span>
           <span className={`block h-0.5 w-8 bg-black`}></span>
