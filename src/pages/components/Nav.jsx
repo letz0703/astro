@@ -6,7 +6,7 @@ import {useMediaQuery} from "usehooks-ts"
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false)
-  const matches = useMediaQuery("(min-width:640px)")
+  const size = useMediaQuery("(min-width:1280px)")
   return (
     <>
       <nav
@@ -30,21 +30,23 @@ export default function Nav() {
         <div>
           <img src={logo} alt="" className={`h-[50px]`} />
         </div>
-        {matches && (
+        {size && (
           <h1 className={`text-lg font-bold`}>
             <a href="/" className={`text-2xl`}>
               i.etz{" "}
             </a>
           </h1>
         )}
-        <div
-          className={`space-y-2 cursor-pointer`}
-          onClick={() => setToggled(prev => !prev)}
-        >
-          <span className={`block h-0.5 w-8 bg-black`}></span>
-          <span className={`block h-0.5 w-8 bg-black`}></span>
-          <span className={`block h-0.5 w-8 bg-black`}></span>
-        </div>
+        {!size && (
+          <div
+            className={`space-y-2 cursor-pointer`}
+            onClick={() => setToggled(prev => !prev)}
+          >
+            <span className={`block h-0.5 w-8 bg-black`}></span>
+            <span className={`block h-0.5 w-8 bg-black`}></span>
+            <span className={`block h-0.5 w-8 bg-black`}></span>
+          </div>
+        )}
       </nav>
     </>
   )
