@@ -45,18 +45,21 @@ export default function Nav() {
         </div>
       )}
       {!size && (
-        <motion.div
+        <div
           className={`space-y-2 cursor-pointer z-10`}
           onClick={() => setToggled(prev => !prev)}
         >
           <span className={`block h-0.5 w-8 bg-black`}></span>
           <span className={`block h-0.5 w-8 bg-black`}></span>
           <span className={`block h-0.5 w-8 bg-black`}></span>
-        </motion.div>
+        </div>
       )}
 
       {toggled && !size && (
-        <div
+        <motion.div
+          animate={{opacity: 1, x: 0}}
+          initial={{opacity: 0, x: -25}}
+          transition={{duration: 0.1}}
           className={`fixed flex bg-white bottom-0 left-0 w-full h-screen items-center justify-center  `}
         >
           <div className={`flex flex-col gap-24 text-lg`}>
@@ -64,7 +67,7 @@ export default function Nav() {
             <a href="/about">About</a>
             <a href="/shop">Shop</a>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   )
