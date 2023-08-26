@@ -45,14 +45,14 @@ export default function Nav() {
         </div>
       )}
       {!size && (
-        <div
+        <motion.div
           className={`space-y-2 cursor-pointer z-10`}
           onClick={() => setToggled(prev => !prev)}
         >
           <span className={`block h-0.5 w-8 bg-black`}></span>
           <span className={`block h-0.5 w-8 bg-black`}></span>
           <span className={`block h-0.5 w-8 bg-black`}></span>
-        </div>
+        </motion.div>
       )}
 
       {toggled && !size && (
