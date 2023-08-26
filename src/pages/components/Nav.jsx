@@ -56,10 +56,14 @@ export default function Nav() {
       )}
 
       {toggled && (
-        <div className={`fixed bg-white bottom-0 left-0`}>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/shop">Shop</a>
+        <div
+          className={`fixed flex bg-white bottom-0 left-0 w-full h-screen items-center justify-center  `}
+        >
+          <div className={`flex gap-12`}>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/shop">Shop</a>
+          </div>
         </div>
       )}
     </nav>
