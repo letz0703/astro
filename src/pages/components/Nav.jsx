@@ -4,6 +4,23 @@ import {motion} from "framer-motion"
 import {useMediaQuery} from "usehooks-ts"
 //https://usehooks-ts.com/introduction
 
+const navMotion = {
+  visible: {
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.15
+    }
+  },
+  hidden: {
+    opacity: 0
+  }
+}
+const itemMotion = {
+  visible: {opacity: 1, x: 0},
+  hidden: {opacity: 0, x: -100}
+}
+
 export default function Nav() {
   const [toggled, setToggled] = useState(false)
   const size = useMediaQuery("(min-width:1280px)")
@@ -46,12 +63,24 @@ export default function Nav() {
       )}
       {!size && (
         <div
-          className={`space-y-2 cursor-pointer z-10`}
+          className={`space-y-1.5 cursor-pointer z-10`}
           onClick={() => setToggled(prev => !prev)}
         >
-          <span className={`block h-0.5 w-8 bg-black`}></span>
-          <span className={`block h-0.5 w-8 bg-black`}></span>
-          <span className={`block h-0.5 w-8 bg-black`}></span>
+          <motion.span
+            animate={{rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0}}
+            className={`block h-0.5 w-8 bg-red-500`}
+          ></motion.span>
+          <motion.span
+            animate={{width: toggled ? 0 : ""}}
+            className={`block h-0.5 w-8 bg-green-400`}
+          ></motion.span>
+          <motion.span
+            animate={{
+              rotateZ: toggled ? -45 : 0,
+              y: toggled ? -8 : 0
+            }}
+            className={`block h-0.5 w-8 bg-blue-300`}
+          ></motion.span>
         </div>
       )}
 
@@ -59,14 +88,25 @@ export default function Nav() {
         <motion.div
           animate={{opacity: 1, x: 0}}
           initial={{opacity: 0, x: -25}}
-          transition={{duration: 0.1}}
+          transition={{duration: 0.5}}
           className={`fixed flex bg-white bottom-0 left-0 w-full h-screen items-center justify-center  `}
         >
-          <div className={`flex flex-col gap-24 text-lg`}>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/shop">Shop</a>
-          </div>
+          <motion.div
+            variant={navMotion}
+            className={`flex flex-col gap-24 text-lg`}
+            animate="visible"
+            initial="hidden"
+          >
+            <motion.a varients={itemMotion} href="/">
+              Home
+            </motion.a>
+            <motion.a varients={itemMotion} href="/about">
+              About
+            </motion.a>
+            <motion.a varients={itemMotion} href="/shop">
+              Shop
+            </motion.a>
+          </motion.div>
         </motion.div>
       )}
     </nav>
