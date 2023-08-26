@@ -46,7 +46,7 @@ export default function Nav() {
       )}
       {!size && (
         <div
-          className={`space-y-2 cursor-pointer`}
+          className={`space-y-2 cursor-pointer z-10`}
           onClick={() => setToggled(prev => !prev)}
         >
           <span className={`block h-0.5 w-8 bg-black`}></span>
@@ -55,11 +55,11 @@ export default function Nav() {
         </div>
       )}
 
-      {toggled && (
+      {toggled && !size && (
         <div
           className={`fixed flex bg-white bottom-0 left-0 w-full h-screen items-center justify-center  `}
         >
-          <div className={`flex gap-12`}>
+          <div className={`flex flex-col gap-24 text-lg`}>
             <a href="/">Home</a>
             <a href="/about">About</a>
             <a href="/shop">Shop</a>
