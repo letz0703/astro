@@ -14,25 +14,26 @@ import portrait from "/portrait.jpg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <defs>
+        <linearGradient
+          id="paint0_linear_6_33"
+          x1="2.00009"
+          y1="50.9998"
+          x2="589"
+          y2="275.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop off-set="0%" style={{stopColor: "#DC3A2B"}}></stop>
+          <stop offset="100%" style={{stopColor: "#e18410"}}></stop>
+        </linearGradient>
+      </defs>
       <path
+        id="border-path"
         d="M538 253.5V167HL2 2"
         stroke="url(#paint0_linear_6_33)"
         stroke-width="3"
         stroke-linecap="round"></path>
     </svg>
-    <defs>
-      <linearGradient
-        id="paint0_linear_6_33"
-        x1="2.00009"
-        y1="50.9998"
-        x2="589"
-        y2="275.5"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stop-color="#DC3A2B"></stop>
-        <stop offset="1" stop-color="#e18410"></stop>
-      </linearGradient>
-    </defs>
     <p id="anim-p" class="p-6 text-lg">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
       consequatur. Quas delectus in necessitatibus quasi dignissimos temporibus
@@ -69,5 +70,17 @@ import portrait from "/portrait.jpg"
   function updatePath() {
     const textMain = document.querySelector("#anim-p") as HTMLElement
     const path = document.querySelector("#border-path") as SVGPathElement
+
+    if (textMain && path) {
+      path.setAttribute(
+        "d",
+        `M0,0 V${textMain.offsetHeight} H${textMain.offsetWidth} v${
+          textMain.offsetHeight / 2
+        }`
+      )
+    }
   }
+
+  window.addEventListener("DOMContentLoaded", updatePath)
+  window.addEventListener("resize", updatePath)
 </script>
