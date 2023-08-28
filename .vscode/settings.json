@@ -88,5 +88,6 @@
         }
       }
     ]
-  }
+  },
+  "workbench.colorTheme": "GitHub Dark Dimmed"
 }
