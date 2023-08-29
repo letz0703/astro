@@ -26,10 +26,10 @@ export default function Nav() {
   const size = useMediaQuery("(min-width:1280px)")
   return (
     <nav
-      className={`relative  mx-4 mb-24 flex justify-between items-center pt-8 pb-3 font-medium md:mx-16 lg:mx-32`}
+      className={`relative  mx-8 mb-24 flex justify-between items-center pt-12 pb-6 font-medium md:mx-16 lg:mx-32 `}
     >
       <svg
-        className={`absolute bottom-0 left-1/2 -translate-x-1/2 `}
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 xl:hidden `}
         width="250"
         height={4}
         viewBox="0 0 250 4"
@@ -44,7 +44,7 @@ export default function Nav() {
         />
       </svg>
       <div>
-        <img src={logo} alt="" className={`h-[50px]`} />
+        <img src={logo} alt="letz" className={`h-[50px] `} />
       </div>
       {/*{!size && (*/}
       <h1 className={`text-lg font-bold flex justify-center`}>
@@ -63,7 +63,7 @@ export default function Nav() {
       )}
       {!size && (
         <div
-          className={`space-y-1.5 cursor-pointer z-10`}
+          className={`space-y-1.5 cursor-pointer z-50`}
           onClick={() => setToggled(prev => !prev)}
         >
           <motion.span
@@ -85,12 +85,13 @@ export default function Nav() {
       )}
 
       {toggled && !size && (
-        <motion.div
-          animate={{opacity: 1, x: 0}}
-          initial={{opacity: 0, x: -25}}
-          transition={{duration: 0.5}}
-          className={`fixed flex bg-white bottom-0 left-0 w-full h-screen items-center justify-center  `}
-        >
+        <div class="fixed flex justify-center bg-white bottom-0 left-0 w-full h-screen items-center z-40 ">
+          {/*<motion.div
+            animate={{opacity: 1, x: 0}}
+            initial={{opacity: 0, x: -25}}
+            transition={{duration: 0.5}}
+            className={`fixed flex bg-white bottom-0 left-0 w-full h-screen items-center justify-center  `}
+          >*/}
           <motion.div
             variant={navMotion}
             className={`flex flex-col gap-24 text-lg`}
@@ -107,7 +108,8 @@ export default function Nav() {
               Shop
             </motion.a>
           </motion.div>
-        </motion.div>
+          {/*</motion.div>*/}
+        </div>
       )}
     </nav>
   )

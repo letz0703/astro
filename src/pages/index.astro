@@ -6,16 +6,24 @@ import Intro from "./components/Intro.astro"
 import data from "../../public/lectures.json"
 //const posts = data.json()
 const posts = [...data]
+import Gallery from "./components/Gallery.astro"
 ---
 
 <MainLayout title="l.etz" class="main">
-  <nav></nav>
-  <section>
-    <Intro />
+  <!--<nav></nav>-->
+  <!--<section>-->
+  <Intro />
+  <div class="pt-2 flex">
     {
       posts.map(row => {
-        return <h1 class="flex justify-center">{row.title}</h1>
+        return (
+          <span class="flex justify-center gap-2 text-sm text-gray-300">
+            - {row.title}{" "}
+          </span>
+        )
       })
     }
-  </section>
+  </div>
+  <Gallery />
+  <!--</section>-->
 </MainLayout>

@@ -3,64 +3,75 @@ import paint from "/stroke.png"
 import portrait from "/portrait.jpg"
 ---
 
-<div class="relative mx-12 flex flex-col items-center justify-center">
-  <h1 class="text-xl">i.etz <span class="font-bold">korea</span></h1>
-  <div class="relative">
-    <svg
-      class="absolute h-full w-full overflow-visible"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <linearGradient
-          id="gradient"
-          x1="0%"
-          y1="0%"
-          x2="100%"
-          y2="100%"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset="0%" style={{stopColor: "#DC3A2B"}}></stop>
-          <stop offset="100%" style={{stopColor: "#e18410"}}></stop>
-        </linearGradient>
-      </defs>
-      <path
-        id="border-path"
-        fill="none"
-        stroke="url(#gradient)"
-        stroke-width="4"></path>
-    </svg>
-    <p id="anim-p" class="p-6 text-lg">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
-      consequatur. Quas delectus in necessitatibus quasi dignissimos temporibus
-      laborum ab atque!
-      <br />
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores deleniti
-      consequatur optio iste quod quasi perspiciatis laudantium tenetur, necessitatibus,
-      corrupti cumque laboriosam quas est recusandae officiis, quaerat cupiditate?
-      Aut, porro.
-    </p>
+<div
+  class="relative mx-12 flex flex-col items-center justify-center xl:flex-row xl:gap-32"
+>
+  <div class="w-full xl:w-1/2">
+    <h1 class="text-3xl">
+      i. etz <span class="text-sm text-gray-500">about</span>
+    </h1>
+    <div class="relative">
+      <svg
+        class="absolute h-full w-full overflow-visible"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="gradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="100%"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" style={{stopColor: "#DC3A2B"}}></stop>
+            <stop offset="100%" style={{stopColor: "#e18410"}}></stop>
+          </linearGradient>
+        </defs>
+        <path
+          id="border-path"
+          fill="none"
+          stroke="url(#gradient)"
+          stroke-width="4"></path>
+      </svg>
+      <p id="anim-p" class="p-6 text-lg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+        consequatur. Quas delectus in necessitatibus quasi dignissimos
+        temporibus laborum ab atque!
+        <br />
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores deleniti
+        consequatur optio iste quod quasi perspiciatis laudantium tenetur, necessitatibus,
+        corrupti cumque laboriosam quas est recusandae officiis, quaerat cupiditate?
+        Aut, porro.
+      </p>
+    </div>
+    <div class="flex justify-center pt-12 text-center">
+      <div class="w-32">
+        <h2>projects</h2>
+        <p class="text-xl font-bold" id="project-counter">85</p>
+      </div>
+      <div class="w-32">
+        <h2>especialists</h2>
+        <p class="text-xl font-bold" id="esp-counter">100</p>
+      </div>
+      <div class="w-32">
+        <h2>lectures</h2>
+        <p class="text-xl font-bold" id="lecture-counter">85</p>
+      </div>
+    </div>
   </div>
-  <div class="flex justify-center pt-12 text-center">
-    <div class="w-32">
-      <h2>projects</h2>
-      <p class="text-xl font-bold" id="project-counter">85</p>
-    </div>
-    <div class="w-32">
-      <h2>especialists</h2>
-      <p class="text-xl font-bold" id="esp-counter">100</p>
-    </div>
-    <div class="w-32">
-      <h2>lectures</h2>
-      <p class="text-xl font-bold" id="lecture-counter">85</p>
-    </div>
-  </div>
   <div class="relative">
-    <img src={portrait} alt="letz portrait" class="w-[300px] pt-2 h-full" />
+    <img
+      src={portrait}
+      alt="letz portrait"
+      class="w-[300px] pt-2 h-full rounded-lg"
+    />
     <div class="absolute bottom-0 right-0 translate-y-1/4">
-      <img src={paint} alt="paint" class={`h-[100px] `} />
+      <img src={paint} alt="paint" class={`h-[100px]`} />
     </div>
   </div>
 </div>
+<div class="mt-12 bg-black h-4 w-full"></div>
 <style>
   #border-path {
     animation: draw 1s forwards 1s ease-in;
