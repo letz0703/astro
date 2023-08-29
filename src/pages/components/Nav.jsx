@@ -47,9 +47,9 @@ export default function Nav() {
         <img src={logo} alt="" className={`h-[50px]`} />
       </div>
       {/*{!size && (*/}
-      <h1 className={`text-lg font-bold`}>
+      <h1 className={`text-lg font-bold flex justify-center`}>
         <a href="/" className={`text-2xl`}>
-          i.etz{" "}
+          Meet & Share
         </a>
       </h1>
       {/*)}*/}

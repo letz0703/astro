@@ -42,16 +42,16 @@ import portrait from "/portrait.jpg"
   </div>
   <div class="flex justify-center pt-12 text-center">
     <div class="w-32">
-      <h2>POST</h2>
-      <p class="text-xl font-bold">85</p>
+      <h2>projects</h2>
+      <p class="text-xl font-bold" id="project-counter">85</p>
     </div>
     <div class="w-32">
-      <h2>POST</h2>
-      <p class="text-xl font-bold">85</p>
+      <h2>especialists</h2>
+      <p class="text-xl font-bold" id="esp-counter">100</p>
     </div>
     <div class="w-32">
-      <h2>POST</h2>
-      <p class="text-xl font-bold">85</p>
+      <h2>lectures</h2>
+      <p class="text-xl font-bold" id="lecture-counter">85</p>
     </div>
   </div>
   <div class="relative">
@@ -65,6 +65,7 @@ import portrait from "/portrait.jpg"
   #border-path {
     animation: draw 1s forwards 1s ease-in;
   }
+  /*https://youtu.be/NniT0vKyn-E?t=3150*/
   @keyframes draw {
     to {
       stroke-dashoffset: 0;
@@ -84,7 +85,33 @@ import portrait from "/portrait.jpg"
         }`
       )
     }
+    const pathLengh = path.getTotalLength()
+    path.style.strokeDasharray = pathLengh.toString()
+    path.style.strokeDashoffset = pathLengh.toString()
   }
+
+  function incrementCounter(
+    selector: string,
+    current: number,
+    target: number,
+    duration: number,
+    letter: string = ""
+  ) {
+    let counter = document.getElementById(selector)
+    let stepTime = Math.abs(Math.floor(duration / target))
+    if (current < target && counter) {
+      current++
+      counter.innerText = current.toString() + letter
+      setTimeout(
+        () => incrementCounter(selector, current, target, duration, letter),
+        stepTime
+      )
+    }
+  }
+
+  incrementCounter("project-counter", 0, 9, 1000)
+  incrementCounter("esp-counter", 0, 100, 1000, " .")
+  incrementCounter("lecture-counter", 0, 1, 1000)
 
   window.addEventListener("DOMContentLoaded", updatePath)
   window.addEventListener("resize", updatePath)
