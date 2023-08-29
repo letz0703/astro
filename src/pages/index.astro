@@ -2,11 +2,20 @@
 import MainLayout from "../layouts/main-layout.astro"
 import "./style.css"
 import Intro from "./components/Intro.astro"
+//const data = await fetch("https://jsonplaceholder.typicode.com/posts")
+import data from "../../public/lectures.json"
+//const posts = data.json()
+const posts = [...data]
 ---
 
 <MainLayout title="l.etz" class="main">
   <nav></nav>
   <section>
     <Intro />
+    {
+      posts.map(row => {
+        return <h1 class="flex justify-center">{row.title}</h1>
+      })
+    }
   </section>
 </MainLayout>
