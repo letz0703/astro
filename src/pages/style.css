@@ -2,3 +2,10 @@
   display: flex;
   align-items: center;
 }*/
+.index_img {
+  width: 4em;
+}
+
+.visually-hidden {
+  display: none;
+}
