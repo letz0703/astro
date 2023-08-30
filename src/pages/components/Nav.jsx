@@ -56,9 +56,9 @@ export default function Nav() {
       {/* View Desktop Vs. Mobile */}
       {size && (
         <div className={`flex gap-12`}>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/shop">Shop</a>
+          <a href="/">letz</a>
+          <a href="http://rainskiss.com">rainskiss</a>
+          <a href="http://wizbox.shop">icanmart</a>
         </div>
       )}
       {!size && (
