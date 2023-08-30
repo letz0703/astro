@@ -2,7 +2,7 @@
 import "../pages/style.css"
 ---
 
-<ul>
+<ul role="list">
   <li>
     <p class="visually-hidden">html</p>
     <img src="/img/html.svg" alt="html" class="index_img pt-2" />
@@ -12,4 +12,33 @@ import "../pages/style.css"
     <img src="/img/react.svg" alt="react" class="index_img pt-2" />
   </li>
 </ul>
-<style></style>
+<style>
+  ul {
+    height: 100%;
+    border-left: 1px solid black;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: grid;
+    align-content: center;
+    gap: 3rem;
+  }
+
+  li {
+    position: relative;
+    padding-left: 2rem;
+  }
+  li::after {
+    --_size: 0.5rem;
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    width: var(--_size);
+    transform: translateX(-50%);
+    aspect-ratio: 1;
+    outline: 0.5rem solid var(--clr-primary-400);
+    border-radius: 50%;
+    background: var(--clr-neutral-100);
+  }
+</style>

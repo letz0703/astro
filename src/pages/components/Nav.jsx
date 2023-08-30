@@ -49,7 +49,7 @@ export default function Nav() {
       {/*{!size && (*/}
       <h1 className={`text-lg font-bold flex justify-center`}>
         <a href="/" className={`text-2xl`}>
-          Meet & Share
+          Love & Free
         </a>
       </h1>
       {/*)}*/}
